@@ -1,0 +1,28 @@
+# Build output, packages, and test reports
+/artifacts/
+**/bin/
+**/obj/
+*.exe
+*.dll
+*.pdb
+*.zip
+*.log
+
+# Measurement data and runtime records belong outside version control
+**/logs/
+**/temperature_data/
+*.csv
+**/ui-language.txt
+**/paused-handover.json
+
+# Local IDE and machine settings
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.cache
+Thumbs.db
+.DS_Store
+.env
+.env.*

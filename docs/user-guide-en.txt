@@ -1,0 +1,49 @@
+﻿Lake Shore 336 Temperature Control
+
+Run LakeShoreControl.exe. The default interface language is English.
+Use the English / 中文 selector at the top right to change language immediately.
+Your choice is remembered for the next launch. Changing language does not restart
+the program, alter temperatures or hold times, or send instrument commands.
+
+Connection
+Select Real device, the connected USB COM port, input and output, then Connect.
+Connection only monitors the instrument. Confirm the heater range before starting.
+Use Demo device for a simulation with no physical instrument connection.
+
+Temperature program
+The saved default recipe loads automatically, without starting it.
+All points shows every target and hold time. Edit steps lets you edit the table.
+The mode names are Rate, Duration, Step and Timed step.
+Timed step writes and verifies the target, then immediately starts the hold timer;
+it does not wait for the measured temperature to reach the target.
+Other modes wait for measured temperature stability before counting the hold.
+
+Hold accepts decimal minutes or mm:ss. Example: 22:22 = 22 minutes 22 seconds.
+Apply to all updates all rows and saves the default recipe, without starting it.
+Start runs from the first point. Pause freezes program timing while maintaining
+the current setpoint. Resume continues without resetting elapsed time.
+Restart from point 1 resets timing and starts the edited table from its first point.
+While paused you can edit the program; after editing, use Restart to apply it.
+
+On completion: Hold final target keeps PID control active at the final temperature.
+Heater off stops the selected output. All Outputs Off turns off all four outputs.
+Fault protections may stop the output. A communication failure can leave shutdown
+unconfirmed; check the physical instrument and use its All Off control as needed.
+
+Data
+Open temperature data folder opens temperature_data next to the executable.
+Daily CSV files contain temperature_K and local_time, sampled approximately every
+10 seconds. Existing files are appended to, including after a restart. Full raw
+samples and original event records are kept in logs. The language selector changes
+the display only; it does not translate, rename or overwrite measurement records.
+
+Keep the computer awake and the application running during a software sequence.
+Disconnecting USB or forcibly closing the app may leave the last instrument target
+active. Actual cooling rate depends on the existing cryostat/cooling equipment.
+
+Source and verification
+src contains the C# source, including UiText.cs for English UI translations.
+From the source repository, scripts/build.ps1 rebuilds using the Windows .NET Framework compiler.
+Run: LakeShoreControl.exe --self-test language-tests.txt
+The tests use simulated instruments only. The report contains the
+46-test result when generated, including recipe and paused-timing preservation during switching.

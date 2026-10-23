@@ -1,0 +1,1 @@
+{"Version":1,"TemperatureUnit":"K","Stages":[{"TargetK":245,"Mode":"Duration","Value":5,"HoldMinutes":5,"TimeoutMinutes":60},{"TargetK":250,"Mode":"Duration","Value":10,"HoldMinutes":10,"TimeoutMinutes":60}],"ToleranceK":0.5,"StableSeconds":10,"HoldAtEnd":false}
